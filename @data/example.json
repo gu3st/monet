@@ -1,0 +1,33 @@
+{
+  "canvas": {
+    "height": 480,
+    "width": 640,
+    "bgcolor": "#33AA33"
+  },
+  "objects": [
+    {
+      "primitive": "Image",
+      "props": {
+        "src": "https://i.imgur.com/ZibjwEs.png",
+        "coords": {
+          "x": 0,
+          "y": 0,
+          "width": 480,
+          "height": 270
+        }
+      }
+    },
+    {
+      "primitive": "Text",
+      "props": {
+        "size": 32,
+        "fontFamily": "Helvetica",
+        "color": "#FF00CD",
+        "coords": {
+          "x": 700,
+          "y": 160
+        }
+      }
+    }
+  ]
+}

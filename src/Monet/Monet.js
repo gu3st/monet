@@ -21,19 +21,24 @@ export default class Monet {
     }
 
     drawObjects(_objects){
-        const Q = Promise.resolve()
-        _objects.forEach((_object) => {
+        return _objects.reduce((_queue, _object) => {
             const primitive = this.primitives[_object.primitive]
             if(primitive){
-                Q.then(primitive.render(this.context, _object.props))
+                return _queue.then(() => {
+                    this.context.save()
+                    const P = primitive.render(this.context, _object.props)
+                    return P.then(() => this.context.restore())
+                })
             }
-        })
+            return _queue
+        }, Promise.resolve())
     }
 
-    render(_tree){
+    async render(_tree){
         const {canvas, objects} = _tree
         this.resizeCanvas(canvas)
         this.clearCanvas(canvas)
-        this.drawObjects(objects)
+        return this.drawObjects(objects)
+
     }
 }

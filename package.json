@@ -5,15 +5,16 @@
   "main": "dev/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "parcel src/index.js",
-    "dev": "parcel dev/index.html"
+    "build": "parcel src/index.js --target node --out-file monet.js",
+    "dev": "parcel dev/index.html --out-dir dev/build"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "parcel-bundler": "^1.9.3"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "parcel-bundler": "^1.9.3",
+    "canvas": "^2.0.0-alpha.12",
+    "babel": "^6.23.0",
     "babel-polyfill": "^6.26.0"
   }
 }
